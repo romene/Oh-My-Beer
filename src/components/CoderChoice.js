@@ -43,11 +43,9 @@ h1 {
 const StyledCoderChoiceSmall = styled(StyledCoderChoice)`
   height: 250px;
   width: 100%;
-  /* background-image: url(${props => props.src}); */
   background-size: cover;
-     background-repeat: no-repeat;
-     background-position: center;
-  
+  background-repeat: no-repeat;
+  background-position: center;
 `
 
 

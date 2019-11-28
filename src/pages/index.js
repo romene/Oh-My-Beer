@@ -3,49 +3,26 @@ import Layout from "../components/layout"
 
 import Featured from '../components/Featured'
 import CoderChoice from "../components/CoderChoice"
-
 import styled from 'styled-components'
-import HeroBeer from '../images/beerHero.jpg'
-import VideoBeer from '../images/Beer - 26845 (1).mp4'
-import Menu from '../styledComponents/StyledMenu'
-
-import Logo from '../images/logo.png'
-import { FaHeart, FaShoppingCart  } from "react-icons/fa"
-
+import VideoBeer from '../images/HeroVideo.mp4'
+import MenuBar from '../components/Layout/MenuBar/MenuBar'
 
 const IndexPage = () => (
   <Layout>
-    <Hero>
+    <StyledHero>
       <video autoplay="true" loop="true">
         <source src={VideoBeer} type="video/mp4"></source>
       </video>
       <div className="overlay"></div>
-      <Menu>
-        <div className="logo">
-          <img src={Logo} alt="Logo" />
-        </div>
-        <div className="menu">
-          <ul>
-            <li>Home</li>
-            <li>IPA</li>
-            <li>Larger</li>
-            <li>Beers</li>
-          </ul>
-        </div>
-        <div className="cart">
-          <FaHeart style={{ margin: "0 .3em" }} size={25} />
-          <FaShoppingCart style={{ margin: "0 .3em" }} size={25} />
-        </div>
-      </Menu>
-    </Hero>
+
+    <MenuBar />
+    </StyledHero>
     <Featured />
     <CoderChoice />
   </Layout>
 )
 
-const Hero = styled.div`
-  /* background-image: url(${HeroBeer}); */
-  background-color: black;
+const StyledHero = styled.div`
   position: relative;
   top: 0;
   opacity: 1;
@@ -57,11 +34,14 @@ const Hero = styled.div`
   width: 100%;
   margin-right: auto;
   margin-left: auto;
-  z-index: 999;
   overflow: hidden;
 
   video{
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: cover;
+    
   }
 
   .overlay{
