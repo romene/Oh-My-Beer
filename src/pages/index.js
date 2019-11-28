@@ -5,9 +5,32 @@ import Featured from '../components/Featured'
 
 import styled from 'styled-components'
 import HeroBeer from '../images/beerHero.jpg'
+import Menu from '../styledComponents/StyledMenu'
+
+import Logo from '../images/logo.png'
+import { FaHeart, FaShoppingCart  } from "react-icons/fa"
+
 const IndexPage = () => (
   <Layout>
-    <Hero />
+    <Hero>
+      <Menu>
+        <div className="logo">
+          <img src={Logo} alt="Logo" />
+        </div>
+        <div className="menu">
+          <ul>
+            <li>Menu 1</li>
+            <li>Menu 1</li>
+            <li>Menu 1</li>
+            <li>Menu 1</li>
+          </ul>
+        </div>
+        <div className="cart">
+          <FaHeart style={{ margin: "0 .3em" }} size={25} />
+          <FaShoppingCart style={{ margin: "0 .3em" }} size={25} />
+        </div>
+      </Menu>
+    </Hero>
     <Featured />
   </Layout>
 )

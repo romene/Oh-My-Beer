@@ -14,6 +14,8 @@ const Header = () => (
         
         maxWidth: 960,
         minHeight: 80,
+        position: 'sticky',
+        top: 0
       }}
     >
      
