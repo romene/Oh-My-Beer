@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 
 import Featured from '../components/Featured'
+import CoderChoice from "../components/CoderChoice"
 
 import styled from 'styled-components'
 import HeroBeer from '../images/beerHero.jpg'
@@ -38,6 +39,7 @@ const IndexPage = () => (
       </Menu>
     </Hero>
     <Featured />
+    <CoderChoice />
   </Layout>
 )
 
