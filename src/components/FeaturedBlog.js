@@ -37,9 +37,6 @@ const FeaturedBlog = ( ) => (
         <SectionWrapper>
           {Blog.map((item, i) => {
             const {id,  title} = item.node
-           
-          console.table("From Featured", item.node.image.fluid.src)
-
             return(
               <StyledImage key={id} orderImage={`image${i+1}`}>
                 <img
