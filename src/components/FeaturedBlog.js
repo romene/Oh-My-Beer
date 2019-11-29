@@ -36,8 +36,8 @@ const FeaturedBlog = ( ) => (
       return (
         <SectionWrapper>
           {Blog.map((item, i) => {
-            const {id,  title, resize} = item.node
-            const {fluid} = item.node.image
+            const {id,  title} = item.node
+           
           console.table("From Featured", item.node.image.fluid.src)
 
             return(
