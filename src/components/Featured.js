@@ -39,6 +39,7 @@ const Cards = ({ data }) => (
             {products.map(beer => {
               const { contentfulid, title, description, createdAt } = beer.node
               const productImage = beer.node.productImage.fixed
+              
               return (
                 <Col key={contentfulid} xs={24} md={8}>
                   <Card

@@ -1,9 +1,74 @@
 import React from 'react'
+import { StaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 import {Row, Col} from 'antd'
 import styled from 'styled-components'
-import BGchoice from '../images/craftbeer.jpg'
-import BGchoice2 from '../images/elevate-beer.jpg'
-import BGchoice3 from '../images/beerssasd.jpg'
+
+            
+
+const CoderChoice = ({ data }) => (
+  <StaticQuery
+    query={graphql`
+      query {
+        allContentfulFeaturedBlog {
+          totalCount
+          edges {
+            node {
+              id
+              title
+              featuredBlogImage {
+                fluid {
+                  ...GatsbyContentfulFluid_tracedSVG
+                }
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={data => {
+      const featuredBlogs = data.allContentfulFeaturedBlog.edges.map(item => item)
+      console.log(featuredBlogs[0].node.featuredBlogImage.fluid)
+      return (
+        <Row type="flex" style={{ marginBottom: "2em" }} align="center">
+          <Col xs={20} md={8}>
+            <StyledCoderChoice>
+              <Img
+                fluid={featuredBlogs[0].node.featuredBlogImage.fluid}
+                alt=""
+              />
+              <h1>
+                Coder's <span>Choice</span>
+              </h1>
+            </StyledCoderChoice>
+          </Col>
+          <Col xs={20} md={8}>
+            <StyledCoderChoiceSmall>
+              <Img
+                fluid={featuredBlogs[1].node.featuredBlogImage.fluid}
+                alt=""
+              />
+              <h1>
+                {" "}
+                No <span>Limits</span>
+              </h1>
+            </StyledCoderChoiceSmall>
+            <StyledCoderChoiceSmall>
+              <Img
+                fluid={featuredBlogs[2].node.featuredBlogImage.fluid}
+                alt=""
+              />
+              <h1>
+                {" "}
+                No <span>Limits</span>
+              </h1>
+            </StyledCoderChoiceSmall>
+          </Col>
+        </Row>
+      )
+    }}
+  />
+)
 
 
 const StyledCoderChoice = styled.div`
@@ -49,27 +114,5 @@ const StyledCoderChoiceSmall = styled(StyledCoderChoice)`
 `
 
 
-const CoderChoice = () => {
-    return (
-      <Row type="flex" style={{marginBottom: '2em'}} align="center">
-        <Col xs={20} md={8}>
-          <StyledCoderChoice>
-            <img src={BGchoice} alt=""/>
-            <h1>Coder's <span>Choice</span></h1>
-          </StyledCoderChoice>
-        </Col>
-        <Col xs={20} md={8}>
-          <StyledCoderChoiceSmall src={BGchoice2}>
-              <img src={BGchoice2} alt=""/>
-            <h1> No <span>Limits</span></h1>
-          </StyledCoderChoiceSmall>
-          <StyledCoderChoiceSmall>
-              <img src={BGchoice3} alt=""/>
-            <h1> No <span>Limits</span></h1>
-          </StyledCoderChoiceSmall>
-        </Col>
-      </Row>
-    )
-}
 
 export default CoderChoice

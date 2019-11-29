@@ -1,11 +1,12 @@
 import React from "react"
 import Layout from "../components/layout"
+import styled from 'styled-components'
 
 import Featured from '../components/Featured'
 import CoderChoice from "../components/CoderChoice"
-import styled from 'styled-components'
 import VideoBeer from '../images/HeroVideo.mp4'
 import MenuBar from '../components/Layout/MenuBar/MenuBar'
+import FeaturedBlog from "../components/FeaturedBlog"
 
 const IndexPage = () => (
   <Layout>
@@ -15,10 +16,11 @@ const IndexPage = () => (
       </video>
       <div className="overlay"></div>
 
-    <MenuBar />
+      <MenuBar />
     </StyledHero>
     <Featured />
     <CoderChoice />
+    {/* <FeaturedBlog /> */}
   </Layout>
 )
 
