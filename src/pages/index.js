@@ -11,7 +11,7 @@ import FeaturedBlog from "../components/FeaturedBlog"
 const IndexPage = () => (
   <Layout>
     <StyledHero>
-      <video autoplay="true" loop="true">
+      <video autoPlay loop={true}>
         <source src={VideoBeer} type="video/mp4"></source>
       </video>
       <div className="overlay"></div>
@@ -19,8 +19,8 @@ const IndexPage = () => (
       <MenuBar />
     </StyledHero>
     <Featured />
-    <CoderChoice />
-    {/* <FeaturedBlog /> */}
+    {/* <CoderChoice /> */}
+    <FeaturedBlog />
   </Layout>
 )
 

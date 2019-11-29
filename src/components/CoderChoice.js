@@ -16,7 +16,7 @@ const CoderChoice = ({ data }) => (
             node {
               id
               title
-              featuredBlogImage {
+              featuredBlogImage:image {
                 fluid {
                   ...GatsbyContentfulFluid_tracedSVG
                 }
@@ -28,7 +28,6 @@ const CoderChoice = ({ data }) => (
     `}
     render={data => {
       const featuredBlogs = data.allContentfulFeaturedBlog.edges.map(item => item)
-      console.log(featuredBlogs[0].node.featuredBlogImage.fluid)
       return (
         <Row type="flex" style={{ marginBottom: "2em" }} align="center">
           <Col xs={20} md={8}>

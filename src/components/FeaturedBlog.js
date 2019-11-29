@@ -3,151 +3,112 @@ import styled from 'styled-components'
 import { Col, Divider} from 'antd'
 import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import Foto1 from '../images/beerssasd.jpg'
+import Foto2 from '../images/craftbeer.jpg'
+import Foto3 from '../images/elevate-beer.jpg'
 
-
-const FeaturedBlog = ({data}) => (
-  <StaticQuery
-    query={graphql`
-      query {
-        allContentfulFeaturedBlog {
-          totalCount
-          edges {
-            node {
-              id
-              title
-              featuredBlogImage {
-                fluid {
-                  ...GatsbyContentfulFluid_tracedSVG
-                }
-              }
-            }
+const getBlog = graphql`
+{
+  Blog:allContentfulFeaturedBlog {
+    edges {
+      node {
+        id
+        title
+        image {
+          fluid(maxHeight: 600, maxWidth:600){
+            src
+            ...GatsbyContentfulFluid_tracedSVG
+          }
+          }
           }
         }
       }
-    `}
-    render={data => {
-       const FeaturedBlog = data.allContentfulFeaturedBlog.edges
-      return (
-        <div classname="container">
-          <div className="row">
-            <Divider>
-              {" "}
-              <h2 style={{ fontFamily: "Luckiest Guy" }}>Blog</h2>
-            </Divider>
+    }
+  
 
-            <Col>
-              <RowA>
-                <Tenta>
-                  {FeaturedBlog.map(item => {
-                    console.log(item.node.featuredBlogImage.fluid)
-                    return (
-                      <div>
-                        <Img fluid={item.node.featuredBlogImage.fluid} alt="" />
-                        <FeaturedBlogTitle>
-                          Coder's <span>Choice</span>
-                        </FeaturedBlogTitle>
-                      </div>
-                    )
-                  })}
-                  
-                  
-                </Tenta>
-              </RowA>
-            </Col>
-          </div>
-        </div>
+`
+
+const FeaturedBlog = ( ) => (
+  <StaticQuery
+    query={getBlog}
+    render={data => {
+      const Blog = data.Blog.edges
+      return (
+        <SectionWrapper>
+          {Blog.map((item, i) => {
+            const {id,  title, resize} = item.node
+            const {fluid} = item.node.image
+          console.table("From Featured", item.node.image.fluid.src)
+
+            return(
+              <StyledImage key={id} orderImage={`image${i+1}`}>
+                <img
+                  src={item.node.image.fluid.src}
+                  className="FotoFit"
+                  alt={title}
+                />
+               
+              </StyledImage>
+            )
+          })}
+          
+        </SectionWrapper>
       )
     }}
   />
 )
 
+ 
+
 export default FeaturedBlog
 
-const RowA = styled.div`
-  width: 100%;
-  height: 700px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  img:nth-last-child(3) {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 3;
-    background-color: black;
-    overflow: hidden;
-
-    img {
-      object-fit: cover;
-      object-position: top center;
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-  img:nth-last-child(2) {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    background-color: red;
-    overflow: hidden;
-
-    img {
-      object-fit: cover;
-      object-position: top center;
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-  img:nth-last-child(1) {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    background-color: green;
-    overflow: hidden;
-
-    img {
-      object-fit: cover;
-      object-position: top center;
-      width: 100%;
-      height: 100%;
-    }
-    
-  }
-` 
-
-const Tenta = styled.div`
-  background-color: blue;
-  margin-right: auto;
-  margin-left: auto;
-  width: 70%;
-  height: 650px;
+const SectionWrapper = styled.div`
+  width: 850px;
+  max-height: auto;
+  margin: 1em auto;
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  align-content: center;
+  justify-items: center;
+  overflow: hidden;
   grid-template-columns: 1fr 1fr;
-  
-  
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "image1 image2"
+    "image1 image3";
+
 `
 
-const FeaturedBlogTitle = styled.h1`
-  font-family: "Luckiest Guy";
-  font-style: italic;
-  color: white;
-  text-shadow: 2px 2px 2px black;
-  position: relative;
-  right: -7em;
-  bottom: 3em;
-  width: 250px;
-  background-color: red;
+const StyledImage = styled.div`
+grid-area: ${props => props.orderImage || 'image1'};
+overflow: hidden;
 
+        .FotoFit {
+            object-fit: cover;
+            object-position: center;
+            width: 100%;
+            height: 100%;
+          } 
 
-  background-color: ${props => props.color || "red"};
+img {
+      transition: transform 1.0s;
+      overflow: hidden;
+    }
+
+    img:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+  }
+
 `
 
 
+
+
+
+
+  
+
+  
 
 
