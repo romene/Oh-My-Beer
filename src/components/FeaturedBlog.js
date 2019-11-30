@@ -32,29 +32,32 @@ const FeaturedBlog = ( ) => (
     render={data => {
       const Blog = data.Blog.edges
       return (
-        <SectionWrapper>
-          {Blog.map((item, i) => {
-            const {id,  title} = item.node
-            return(
-              <StyledImage key={id} orderImage={`image${i+1}`}>
-                <Img
-                  imgStyle={{
-                    transition: 'transform 1.0s',
-                    overflow: 'hidden',
-                    backgroundColor: '#FF7D01',
-                    loading: 'lazy'
+        <div className="container">
+          <SectionWrapper>
+            {Blog.map((item, i) => {
+              const { id, title } = item.node
+              return (
+                <StyledImage key={id} orderImage={`image${i + 1}`}>
+                  <div className="text--overlay">{title}</div>
+                  <Img
+                    imgStyle={{
+                      transition: 'transform 1.0s',
+                      overflow: 'hidden',
+                      backgroundColor: '#FF7D01',
+                      loading: 'lazy'
 
-                  }}
-                  fluid={item.node.image.fluid}
-                  className="FotoFit"
-                  alt={title}
-                />
-               
-              </StyledImage>
-            )
-          })}
-          
-        </SectionWrapper>
+                    }}
+                    fluid={item.node.image.fluid}
+                    className="FotoFit"
+                    alt={title}
+                  >
+                  </Img>
+                </StyledImage>
+              )
+            })}
+
+          </SectionWrapper>
+        </div>
       )
     }}
   />
@@ -65,10 +68,12 @@ const FeaturedBlog = ( ) => (
 export default FeaturedBlog
 
 const SectionWrapper = styled.div`
+position: relative; 
   max-width: 850px;
   max-height: auto;
   margin: 1em auto;
   display: grid;
+  grid-gap: 10px;
   align-content: center;
   justify-items: center;
   overflow: hidden;
@@ -82,7 +87,7 @@ const SectionWrapper = styled.div`
     
       margin: 0  3em;
      grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1.5fr 1fr 1fr;
   grid-template-areas:
     "image1"
     "image2"
@@ -104,7 +109,24 @@ width: 100%;
             height: 100%;
           } 
 
+          .text--overlay{
+            grid-area: ${props => props.orderImage || 'image1'};
+            font-family: "Luckiest Guy";
+            font-style: italic;
+            color: white;
+            text-shadow: 2px 2px 2px black;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: red;
+            padding-left: 20px;
+            padding-right: 20px;
+            font-size: 25px;
+            z-index: 999; 
 
+          }
+        
+          
 
     img:hover {
       transform: scale(1.1);
