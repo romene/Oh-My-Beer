@@ -3,9 +3,7 @@ import styled from 'styled-components'
 import { Col, Divider} from 'antd'
 import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import Foto1 from '../images/beerssasd.jpg'
-import Foto2 from '../images/craftbeer.jpg'
-import Foto3 from '../images/elevate-beer.jpg'
+
 
 const getBlog = graphql`
 {
@@ -15,7 +13,7 @@ const getBlog = graphql`
         id
         title
         image {
-          fluid(maxHeight: 600, maxWidth:600){
+          fluid(maxHeight: 600, maxWidth: 800){
             src
             ...GatsbyContentfulFluid_tracedSVG
           }
@@ -39,8 +37,15 @@ const FeaturedBlog = ( ) => (
             const {id,  title} = item.node
             return(
               <StyledImage key={id} orderImage={`image${i+1}`}>
-                <img
-                  src={item.node.image.fluid.src}
+                <Img
+                  imgStyle={{
+                    transition: 'transform 1.0s',
+                    overflow: 'hidden',
+                    backgroundColor: '#FF7D01',
+                    loading: 'lazy'
+
+                  }}
+                  fluid={item.node.image.fluid}
                   className="FotoFit"
                   alt={title}
                 />
@@ -60,7 +65,7 @@ const FeaturedBlog = ( ) => (
 export default FeaturedBlog
 
 const SectionWrapper = styled.div`
-  width: 850px;
+  max-width: 850px;
   max-height: auto;
   margin: 1em auto;
   display: grid;
@@ -73,11 +78,24 @@ const SectionWrapper = styled.div`
     "image1 image2"
     "image1 image3";
 
+    @media (max-width: 768px) {
+    
+      margin: 0  3em;
+     grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "image1"
+    "image2"
+    "image3";
+    overflow: hidden;
+  }
+
 `
 
 const StyledImage = styled.div`
 grid-area: ${props => props.orderImage || 'image1'};
 overflow: hidden;
+width: 100%;
 
         .FotoFit {
             object-fit: cover;
@@ -86,10 +104,7 @@ overflow: hidden;
             height: 100%;
           } 
 
-img {
-      transition: transform 1.0s;
-      overflow: hidden;
-    }
+
 
     img:hover {
       transform: scale(1.1);

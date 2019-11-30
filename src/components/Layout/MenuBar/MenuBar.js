@@ -34,6 +34,9 @@ const StyledMenuBar = styled.div`
   align-items: center;
   justify-content: space-between;
 
+  @media (max-width: 768px) {
+  display: none;
+  }
 `
 
 const StyledMenuList = styled.div`
