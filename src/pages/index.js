@@ -16,7 +16,6 @@ const IndexPage = (props) => {
           <source src={VideoBeer} type="video/mp4"></source>
         </video>
         <div className="overlay"></div>
-
       </StyledHero>
 
       <Featured />
@@ -26,7 +25,7 @@ const IndexPage = (props) => {
   )
 }
 
-const StyledHero = styled.div`
+export const StyledHero = styled.div`
   position: relative;
   top: 0;
   opacity: 1;

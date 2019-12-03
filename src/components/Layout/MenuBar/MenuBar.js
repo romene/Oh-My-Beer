@@ -12,7 +12,7 @@ const MenuBar = () => {
         <StyledMenuList>
           <ul>
             <li><Link to='/'> Home </Link></li>
-            <li>Beers</li>
+            <li><Link to='/beers'> beers </Link></li>
             <li><Link to='/blog'> Blog </Link></li>
           </ul>
         </StyledMenuList>
