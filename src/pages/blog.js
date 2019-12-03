@@ -3,9 +3,9 @@ import { StaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import HeroInternalPage from '../components/Layout/Hero/HeroInternalPage'
-
 import BlogCard from '../components/Layout/Blog/BlogCard'
 import { Col } from "antd"
+import MenuBar from '../components/Layout/MenuBar/MenuBar'
 
 const BlogPage = () => (
 <StaticQuery 
@@ -14,7 +14,7 @@ render={data => {
   const Blogs = data.Blog.edges
   return (
     <Layout>
-      <HeroInternalPage />
+      <HeroInternalPage/>
       <div className="container">
         <div className="row">
           <Col xs={24} md={12} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', margin: "0 auto" }} >

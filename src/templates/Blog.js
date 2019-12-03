@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import HeroInternalPage from '../components/Layout/Hero/HeroInternalPage'
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-
+import MenuBar from '../components/Layout/MenuBar/MenuBar'
 
 export const queryBlog = graphql`
   query($slug: String!){
@@ -32,7 +32,9 @@ const Blog = (props) => {
 
     return (
         <Layout>
-            <HeroInternalPage />
+            <HeroInternalPage>
+              <MenuBar />
+            </HeroInternalPage>
         <div className="container" style={{ padding: '0 2em'}}>
             <h1 style={{ textAlign: 'center', fontWeight: 'bold' }}>{title}</h1>
           <div style={{ textAlign: 'center'}}>{documentToReactComponents(props.data.contentfulBlogPost.body.json, options)}</div>

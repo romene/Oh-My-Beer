@@ -1,11 +1,15 @@
 import React from 'react'
 import styled from "styled-components"
 import LogoBeer from "../../../images/logo.png"
+import {Link} from 'gatsby'
+
 
 const Logo = () => {
     return (
       <LogoStyled>
+        <Link to="/">
         <img src={LogoBeer} alt="Logo" />
+        </Link>
       </LogoStyled>
     )
 }

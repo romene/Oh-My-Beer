@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import Featured from '../components/Featured'
 // import CoderChoice from "../components/CoderChoice"
 import VideoBeer from '../images/HeroVideo.mp4'
-import MenuBar from '../components/Layout/MenuBar/MenuBar'
 import FeaturedBlog from "../components/FeaturedBlog"
 
 const IndexPage = (props) => {
@@ -18,7 +17,6 @@ const IndexPage = (props) => {
         </video>
         <div className="overlay"></div>
 
-        <MenuBar />
       </StyledHero>
 
       <Featured />
@@ -46,7 +44,7 @@ const StyledHero = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: cover;
+    object-position: top;
     
   }
 

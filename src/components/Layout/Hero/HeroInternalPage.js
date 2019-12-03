@@ -7,13 +7,7 @@ const HeroInternalPage = () => {
   
       return (
         <React.Fragment>
-          <StyledHeroInternalPage>
-
-          <StyledLogo>
-            <img src={Logo} alt="Rogerio" />
-          </StyledLogo>
-          </StyledHeroInternalPage>
-
+          <StyledHeroInternalPage/>
             
           <div className="container">
             <div

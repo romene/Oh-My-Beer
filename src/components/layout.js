@@ -7,14 +7,14 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-
+import MenuBar from '../components/Layout/MenuBar/MenuBar'
 import "./layout.css"
 
 const Layout = ({ children }) => {
     return (
     <>
-      
-              <main>{children}</main>
+        <MenuBar />
+        <main>{children}</main>
       
     </>
   )

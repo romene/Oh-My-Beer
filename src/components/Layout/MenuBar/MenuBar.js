@@ -11,7 +11,7 @@ const MenuBar = () => {
         <LogoBeer />
         <StyledMenuList>
           <ul>
-            <li>Home</li>
+            <li><Link to='/'> Home </Link></li>
             <li>Beers</li>
             <li><Link to='/blog'> Blog </Link></li>
           </ul>
@@ -22,17 +22,18 @@ const MenuBar = () => {
 }
 
 const StyledMenuBar = styled.div`
-  width: 60%;
+  width: 100%;
   background-color: white;
   opacity: 1;
   min-height: 100px;
   position: absolute;
-  top: 8em;
+  top: 0;
   right: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  z-index: 999;
 
   @media (max-width: 768px) {
   display: none;
