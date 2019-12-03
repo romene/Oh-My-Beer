@@ -1,9 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
 import {Link} from 'gatsby'
 import Img from 'gatsby-image'
 import {StyledCard, CardHeader, CardBody, CardTitle, CardTagline, CardPrice} from '../styledComponents/StyledCard'
 import StyledButton from '../styledComponents/StyledButton'
+import StyledOverlay from '../styledComponents/StyledOverlay'
+import {Icon} from 'antd'
+
+
+
 
 const Card = ({beers}) => {
   const { name, tagline, contentful_id ,price} = beers
@@ -15,6 +19,10 @@ const Card = ({beers}) => {
           <CardHeader>
             <Img fixed={fixed}
              alt="Image_beer" />
+
+            <StyledOverlay>
+              <Icon style={{ color: '#fff', fontSize: 50, zIndex: 999, position: 'absolute' }} type="zoom-in" />
+            </StyledOverlay>
           </CardHeader>
           <CardBody>
             <CardTitle>{name}</CardTitle>

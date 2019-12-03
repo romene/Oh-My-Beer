@@ -2,12 +2,15 @@ import React from 'react'
 import {graphql, Link}from 'gatsby'
 import Layout from '../components/layout'
 import { StyledHero } from '../pages/index'
+import StyledBeersGrid from '../styledComponents/StyledBeersGrid'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import VideoBeer from '../images/HeroVideo.mp4'
 import {
     StyledCard, CardHeader, CardBody, CardTitle, CardTagline, CardPrice} from '../styledComponents/StyledCard'   
 import StyledButton from '../styledComponents/StyledButton'
+import StyledOverlay  from "../styledComponents/StyledOverlay";
+import {Icon} from 'antd'
 
 
 export const query = graphql`
@@ -49,15 +52,19 @@ const beers = (props) => {
                 {beers.map(beer => {
                 console.log(beer.node)
                 const {contentful_id, name, tagline, price} = beer.node
-                const {description} = beer.node.description
                 const {fixed} = beer.node.imageBeer
 
                   return (
                   <Link to={`/beer/${beer.node.contentful_id}`}>
                       <StyledCard key={contentful_id}>
                         <CardHeader>
+                          <StyledOverlay>
+                            <Icon style={{color: '#fff', fontSize: 50, zIndex: 999, position: 'absolute' }}  type="zoom-in"  />
+                            </StyledOverlay>
                           <Img fixed={fixed}
-                            alt="Image_beer" />
+                            alt="Image_beer">
+                            
+                            </Img>
                         </CardHeader>
                         <CardBody>
                           <CardTitle>{name}</CardTitle>
@@ -86,16 +93,3 @@ const beers = (props) => {
 export default beers
 
 
-const StyledBeersGrid = styled.div`
-max-width: 1200px;
-display: grid;
-margin: 2em auto;
-grid-gap: 10px;
-justify-items: stretch;
-  justify-content: center;	
-
-grid-template-columns: repeat(auto-fill, 300px);
-grid-template-rows: 1fr;
-
-
-`

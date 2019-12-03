@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import StyledOverlay from './StyledOverlay'
+
 
 export const StyledCard = styled.div`
   width: 250px;
@@ -43,6 +45,9 @@ margin: 0 auto;
       margin: .5 auto !important;
 
   }
+
+   
+   
 `
 
 export const CardBody = styled.div`

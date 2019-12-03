@@ -1,6 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql, Link } from "gatsby"
 import { Divider, Col, Row } from "antd"
+import StyledBeersGrid from '../styledComponents/StyledBeersGrid'
 
 import Card from "./Card"
 
@@ -17,13 +18,11 @@ const Cards = () => (
               {" "}
               <h2 style={{ fontFamily: "Luckiest Guy" }}>Featured</h2>
             </Divider>
+              <StyledBeersGrid xs={24} sm={12} lg={6}>
             {Beers.map(beer => (
-              <Col key={beer.contentful_id} xs={24} sm={12} lg={6}>
-                <Row>
                   <Card key={beer.node.id} beers={beer.node} />
-                </Row>
-              </Col>
             ))}
+              </StyledBeersGrid>
           </div>
         </div>
       )
@@ -36,7 +35,7 @@ export default Cards
 
 const QueryBeer = graphql`
   {
-    Beers: allContentfulBeers(limit: 4, sort: { fields: name, order: ASC }) {
+    Beers: allContentfulBeers(limit: 3, sort: { fields: name, order: ASC }) {
       totalCount
       edges {
         node {
