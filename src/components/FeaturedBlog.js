@@ -1,61 +1,78 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Col, Divider} from 'antd'
-import { StaticQuery, graphql } from "gatsby"
+import { Divider } from 'antd'
+import { StaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 
 const getBlog = graphql`
 {
-  Blog:allContentfulFeaturedBlog {
-    edges {
-      node {
+  Blog:allContentfulFeaturedBlogs (
+    sort:{
+      fields: title,
+      order: ASC
+    }
+  ){
+    edges{
+      node{
         id
         title
-        image {
-          fluid(maxHeight: 600, maxWidth: 800){
+        textOverlay
+         slug{
+          slug
+        }
+       	imageBlog{
+          fluid{
             src
             ...GatsbyContentfulFluid_tracedSVG
-          }
-          }
           }
         }
       }
     }
+  }
+}
   
-
 `
 
-const FeaturedBlog = ( ) => (
+const FeaturedBlog = () => (
   <StaticQuery
     query={getBlog}
     render={data => {
       const Blog = data.Blog.edges
       return (
-        <div className="container">
+        <div styled={{marginTop: 300}} className="container">
+          <Divider>
+            {" "}
+            <h2 style={{ fontFamily: "Luckiest Guy" }}>Blogs</h2>
+          </Divider>
           <SectionWrapper>
             {Blog.map((item, i) => {
-              const { id, title } = item.node
+              const { id, title, textOverlay } = item.node
+              const image = item.node.imageBlog.fluid
+              const {slug} = item.node.slug
+              console.log(slug)
               return (
                 <StyledImage key={id} orderImage={`image${i + 1}`}>
-                  <div className="text--overlay">{title}</div>
-                  <Img
-                    imgStyle={{
-                      transition: 'transform 1.0s',
-                      overflow: 'hidden',
-                      backgroundColor: '#FF7D01',
-                      loading: 'lazy'
-
-                    }}
-                    fluid={item.node.image.fluid}
-                    className="FotoFit"
-                    alt={title}
-                  >
-                  </Img>
+                  <div className="text--overlay">{textOverlay}</div>
+                  <Link to={`/blog/${slug}`}>
+                    <Img
+                      imgStyle={{
+                        transition: "transform 1.0s",
+                        overflow: "hidden",
+                        backgroundColor: "#FF7D01",
+                        loading: "lazy",
+                      }}
+                      fluid={image}
+                      className="FotoFit"
+                      alt={title}
+                    >
+                    </Img>
+                  </Link>
+                  
                 </StyledImage>
+              
               )
             })}
-
           </SectionWrapper>
         </div>
       )
@@ -63,7 +80,7 @@ const FeaturedBlog = ( ) => (
   />
 )
 
- 
+
 
 export default FeaturedBlog
 
@@ -82,7 +99,6 @@ position: relative;
   grid-template-areas:
     "image1 image2"
     "image1 image3";
-
     @media (max-width: 768px) {
     
       margin: 0  3em;
@@ -94,21 +110,18 @@ position: relative;
     "image3";
     overflow: hidden;
   }
-
 `
 
 const StyledImage = styled.div`
 grid-area: ${props => props.orderImage || 'image1'};
 overflow: hidden;
 width: 100%;
-
         .FotoFit {
             object-fit: cover;
             object-position: center;
             width: 100%;
             height: 100%;
           } 
-
           .text--overlay{
             grid-area: ${props => props.orderImage || 'image1'};
             font-family: "Luckiest Guy";
@@ -123,26 +136,14 @@ width: 100%;
             padding-right: 20px;
             font-size: 25px;
             z-index: 999; 
-
           }
         
           
-
     img:hover {
       transform: scale(1.1);
       cursor: pointer;
     }
   }
-
 `
-
-
-
-
-
-
-  
-
-  
 
 

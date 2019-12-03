@@ -1,13 +1,19 @@
 import React from 'react'
 import styled from "styled-components"
 import { FaHeart, FaShoppingCart } from "react-icons/fa"
-
+import {Link} from 'gatsby'
 
 const Icons = () => {
     return (
       <StyledIcons>
         <FaHeart style={{ margin: "0 .3em" }} size={25} />
-        <FaShoppingCart style={{ margin: "0 .3em" }} size={25} />
+        <Link className>
+          <FaShoppingCart
+            className="snipcart-checkout"
+            style={{ margin: "0 .3em" }}
+            size={25}
+          />
+        </Link>
       </StyledIcons>
     )
 }

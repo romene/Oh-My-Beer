@@ -1,33 +1,14 @@
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
-import { Card, Divider, Col } from "antd"
-const { Meta } = Card
+import { StaticQuery, graphql, Link } from "gatsby"
+import { Divider, Col, Row } from "antd"
 
-const Cards = ({ data }) => (
+import Card from "./Card"
+
+const Cards = () => (
   <StaticQuery
-    query={graphql`
-      query {
-        allContentfulProduct {
-          totalCount
-          edges {
-            node {
-              contentfulid
-              title
-              description
-              createdAt
-              productImage {
-                fixed(width: 300) {
-                  ...GatsbyContentfulFixed_tracedSVG
-                }
-              }
-            }
-          }
-        }
-      }
-    `}
+    query={QueryBeer}
     render={data => {
-      const products = data.allContentfulProduct.edges
+      const Beers = data.Beers.edges
 
       return (
         <div className="container">
@@ -36,22 +17,13 @@ const Cards = ({ data }) => (
               {" "}
               <h2 style={{ fontFamily: "Luckiest Guy" }}>Featured</h2>
             </Divider>
-            {products.map(beer => {
-              const { contentfulid, title, description, createdAt } = beer.node
-              const productImage = beer.node.productImage.fixed
-              
-              return (
-                <Col key={contentfulid} xs={24} md={8}>
-                  <Card
-                    hoverable
-                    style={{ maxWidth: 300, margin: "1em auto" }}
-                    cover={<Img alt="example" fixed={productImage} />}
-                  >
-                    <Meta title={title} description={description} />
-                  </Card>
-                </Col>
-              )
-            })}
+            {Beers.map(beer => (
+              <Col key={beer.contentful_id} xs={24} sm={12} lg={6}>
+                <Row>
+                  <Card key={beer.node.id} beers={beer.node} />
+                </Row>
+              </Col>
+            ))}
           </div>
         </div>
       )
@@ -60,3 +32,33 @@ const Cards = ({ data }) => (
 )
 
 export default Cards
+
+
+const QueryBeer = graphql`
+  {
+    Beers: allContentfulBeers(limit: 4, sort: { fields: name, order: ASC }) {
+      totalCount
+      edges {
+        node {
+          id
+          contentful_id
+          name
+          tagline
+          price
+          description {
+            description
+          }
+          imageBeer {
+            fixed(width: 300) {
+              src
+              ...GatsbyContentfulFixed_tracedSVG
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+
+

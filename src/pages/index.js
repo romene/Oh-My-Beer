@@ -3,26 +3,30 @@ import Layout from "../components/layout"
 import styled from 'styled-components'
 
 import Featured from '../components/Featured'
-import CoderChoice from "../components/CoderChoice"
+// import CoderChoice from "../components/CoderChoice"
 import VideoBeer from '../images/HeroVideo.mp4'
 import MenuBar from '../components/Layout/MenuBar/MenuBar'
 import FeaturedBlog from "../components/FeaturedBlog"
 
-const IndexPage = () => (
-  <Layout>
-    <StyledHero>
-      <video autoPlay loop={true}>
-        <source src={VideoBeer} type="video/mp4"></source>
-      </video>
-      <div className="overlay"></div>
+const IndexPage = (props) => {
+  console.log(props)
+  return (
+    <Layout>
+      <StyledHero>
+        <video autoPlay loop={true}>
+          <source src={VideoBeer} type="video/mp4"></source>
+        </video>
+        <div className="overlay"></div>
 
-      <MenuBar />
-    </StyledHero>
-    <Featured />
-    {/* <CoderChoice /> */}
-    <FeaturedBlog />
-  </Layout>
-)
+        <MenuBar />
+      </StyledHero>
+
+      <Featured />
+      {/* <CoderChoice /> */}
+      <FeaturedBlog />
+    </Layout>
+  )
+}
 
 const StyledHero = styled.div`
   position: relative;

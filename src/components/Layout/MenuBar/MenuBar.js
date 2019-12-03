@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link}from 'gatsby'
 import styled from "styled-components"
 import LogoBeer from '../MenuBar/LogoBeer'
 import Icons from './Icons'
@@ -11,9 +12,8 @@ const MenuBar = () => {
         <StyledMenuList>
           <ul>
             <li>Home</li>
-            <li>IPA</li>
-            <li>Larger</li>
             <li>Beers</li>
+            <li><Link to='/blog'> Blog </Link></li>
           </ul>
         </StyledMenuList>
         <Icons />

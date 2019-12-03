@@ -14,12 +14,13 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
-    }, {
+    },
+    {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `wahvwk35gki2`,
         // Learn about environment variables: https://gatsby.dev/env-vars
-        accessToken: '0h2JBsCVBnwBpcmQ5WonWpUXyz4VutUvC1LNTH2pCMk',
+        accessToken: "0h2JBsCVBnwBpcmQ5WonWpUXyz4VutUvC1LNTH2pCMk",
       },
     },
     `gatsby-transformer-sharp`,
@@ -34,6 +35,13 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: "gatsby-plugin-snipcart",
+      options: {
+        apiKey:"MjdiMzE0YWEtYTRjOS00MTY1LWI3ZmMtYjgxNDZjODkxMjZlNjM3MTA4NDg1NzI5OTQ4NjE2",
+        autopop: true
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
