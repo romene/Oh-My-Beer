@@ -32,7 +32,7 @@ query ($contentful_id: String!){
 
 const BeerItem = (props) => {
     console.log("Prrrrrrr", props.data.contentfulBeers.imageBeer.fluid)
-    const {name, price} = props.data.contentfulBeers
+    const { name, price, contentful_id} = props.data.contentfulBeers
     const {description} = props.data.contentfulBeers.description
     const {fluid} = props.data.contentfulBeers.imageBeer
     return (
@@ -51,7 +51,14 @@ const BeerItem = (props) => {
                                 <StyledBeerDescTitle>{name}</StyledBeerDescTitle>
                                 <StyledBeerDescDesc>{description}</StyledBeerDescDesc>
                                 <StyledBeerDescDescPrice>{`$ ${price}`}</StyledBeerDescDescPrice>
-                                <StyledButton grid_Area="Beer_Desc--Button"> Add To Cart</StyledButton>
+                                <StyledButton
+                                className="snipcart-add-item"
+                                    data-item-id={contentful_id}
+                                    data-item-price={price}
+                                    data-item-url="/paintings/starry-night"
+                                    data-item-image={props.data.contentfulBeers.imageBeer.fluid.src}
+                                    data-item-name={name}
+                                 grid_Area="Beer_Desc--Button"> Add To Cart</StyledButton>
                             </StyledBeerDesc>
                         </StyledBeerItemWrapper>
                     </Col>

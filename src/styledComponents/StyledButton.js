@@ -9,4 +9,6 @@ export default styled.button`
   background-color: ${props => props.color || 'green'};
   border: none;
   cursor: pointer;
+
+  
 `
