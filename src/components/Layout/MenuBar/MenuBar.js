@@ -10,10 +10,10 @@ const MenuBar = () => {
       <StyledMenuBar>
         <LogoBeer />
         <StyledMenuList>
-          <ul>
-            <li><Link to='/'> Home </Link></li>
-            <li><Link to='/beers'> beers </Link></li>
-            <li><Link to='/blog'> Blog </Link></li>
+         <ul>
+            <Link style={{color: '#d6bbaf'}} activeStyle={{color: '#bca095'}} to='/'>  <li> Home </li> </Link>
+            <Link style={{color: '#d6bbaf'}} activeStyle={{color: '#bca095'}}  to='/beers'> <li> beers </li> </Link>
+            <Link style={{color: '#d6bbaf'}} activeStyle={{color: '#bca095'}} to='/blog'> <li> Blog </li> </Link>
           </ul>
         </StyledMenuList>
         <Icons />
@@ -59,11 +59,12 @@ const StyledMenuList = styled.div`
     font-weight: bold;
     font-family: "Luckiest Guy";
     font-size: 1.5em;
-    :hover {
-      color: #d6bbaf;
-      cursor: pointer;
+
+    :hover{
+      color: #aa897c;
     }
   }
+  
 `
 
 export default MenuBar
