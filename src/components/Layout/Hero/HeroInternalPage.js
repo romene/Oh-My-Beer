@@ -1,35 +1,59 @@
 import React from 'react'
+import { graphql, StaticQuery } from "gatsby";
 import styled from 'styled-components'
 import BeerHero from '../../../images/beerHero.jpg'
 import Logo from '../../../images/logo.png'
+import Img from 'gatsby-image'
 
-const HeroInternalPage = () => {
-  
-      return (
-        <React.Fragment>
-          <StyledHeroInternalPage/>
-            
-          <div className="container">
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginTop: "5em",
-              }}
-              className="row">
-              
-            </div>
+
+export const queryBeerHero = graphql`
+{
+  allFile (filter: {relativePath: {eq: "beerHero.jpg"}}) {
+    edges{
+      node{
+        childImageSharp{
+          fluid{
+            src
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  }
+}
+`
+
+const HeroInternalPage = () => (
+  <StaticQuery
+  query={queryBeerHero}
+  render={data => {
+    console.log(data.allFile.edges[0].node.childImageSharp)
+    const {fluid} = data.allFile.edges[0].node.childImageSharp
+    return(
+      <React.Fragment>
+        <StyledHeroInternalPage height="70vh">
+          <Img style={{width: '100%', height: '100%'}} imgStyle={{width: '100%', height: '100%'}} fluid={fluid} alt="Hero"/>
+        </StyledHeroInternalPage>
+        <div className="container">
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "5em",
+            }}
+            className="row">
+
           </div>
-        </React.Fragment>
-      )
-  
-  
-            }
+        </div>
+      </React.Fragment>
+    )
+  }}
+   />
+)
 
 export default HeroInternalPage
 
 export const StyledHeroInternalPage = styled.div`
-  background-image: url(${BeerHero});
   top: 0;
   opacity: 1;
   background-repeat: no-repeat;

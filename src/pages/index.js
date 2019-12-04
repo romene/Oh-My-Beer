@@ -8,7 +8,6 @@ import VideoBeer from '../images/HeroVideo.mp4'
 import FeaturedBlog from "../components/FeaturedBlog"
 
 const IndexPage = (props) => {
-  console.log(props)
   return (
     <Layout>
       <StyledHero>

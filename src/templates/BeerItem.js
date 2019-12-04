@@ -26,18 +26,32 @@ query ($contentful_id: String!){
         }
     }
   }
+  allFile (filter: {relativePath: {eq: "beerHero.jpg"}}) {
+    edges{
+      node{
+        childImageSharp{
+          fluid{
+            src
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  }
 }
 `
 
 
 const BeerItem = (props) => {
-    console.log("Prrrrrrr", props.data.contentfulBeers.imageBeer.fluid)
+    
     const { name, price, contentful_id} = props.data.contentfulBeers
     const {description} = props.data.contentfulBeers.description
     const {fluid} = props.data.contentfulBeers.imageBeer
+    const imageData = props.data.allFile.edges[0].node.childImageSharp.fluid
     return (
         <Layout>
-            <StyledHeroInternalPage height="30vh">
+            <StyledHeroInternalPage height="50vh">
+                <Img style={{width: '100%', height: '100%'}} imgStyle={{width: '100%', height: '100%'}} fluid={imageData} alt="Hero"/>
                 <MenuBar/>
             </StyledHeroInternalPage>
             <div className="container">

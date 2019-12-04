@@ -50,7 +50,7 @@ const FeaturedBlog = () => (
               const { id, title, textOverlay } = item.node
               const image = item.node.imageBlog.fluid
               const {slug} = item.node.slug
-              console.log(slug)
+              
               return (
                 <StyledImage key={id} orderImage={`image${i + 1}`}>
                   <div className="text--overlay">{textOverlay}</div>

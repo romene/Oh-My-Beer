@@ -4,7 +4,6 @@ import {Link} from 'gatsby'
 import Logo from '../../../images/logo.png'
 
 const BlogCard = ({blogs}) => {
-      console.log("from blog card", blogs)
   const { title, slug, publishedData} = blogs
     return (
       <React.Fragment>

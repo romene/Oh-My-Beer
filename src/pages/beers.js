@@ -50,7 +50,7 @@ const beers = (props) => {
                     <StyledBeersGrid>
                    
                 {beers.map(beer => {
-                console.log(beer.node)
+                
                 const {contentful_id, name, tagline, price} = beer.node
                 const {fixed} = beer.node.imageBeer
 

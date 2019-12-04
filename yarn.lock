@@ -4518,6 +4518,12 @@ fill-range@^7.0.1:
   dependencies:
     to-regex-range "^5.0.1"
 
+filter-invalid-dom-props@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/filter-invalid-dom-props/-/filter-invalid-dom-props-2.0.0.tgz#527f1494cb3c4f282a73c43804153eb80c42dc2c"
+  dependencies:
+    html-attributes "1.1.0"
+
 finalhandler@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/finalhandler/-/finalhandler-1.1.2.tgz#b7e7d000ffd11938d0fdb053506f6ebabe9f587d"
@@ -4713,6 +4719,16 @@ functional-red-black-tree@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
 
+gatsby-background-image@^0.9.11:
+  version "0.9.11"
+  resolved "https://registry.yarnpkg.com/gatsby-background-image/-/gatsby-background-image-0.9.11.tgz#7c57ebdb7dfc257d22f69368efbe5810b9374276"
+  dependencies:
+    "@babel/runtime" "^7.7.4"
+    filter-invalid-dom-props "^2.0.0"
+    global "^4.4.0"
+    short-uuid "^3.1.1"
+    sort-media-queries "^0.2.2"
+
 gatsby-cli@^2.8.14:
   version "2.8.14"
   resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.8.14.tgz#9855e4e3ac89cb1d1492b081b5d627c78ab74526"
@@ -4760,11 +4776,65 @@ gatsby-cli@^2.8.14:
     ink "^2.5.0"
     ink-spinner "^3.0.1"
 
+gatsby-cli@^2.8.15:
+  version "2.8.15"
+  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.8.15.tgz#d6445b9d1543003f1ae7199164a1de2519be10f3"
+  dependencies:
+    "@babel/code-frame" "^7.5.5"
+    "@babel/runtime" "^7.7.4"
+    "@hapi/joi" "^15.1.1"
+    better-opn "^1.0.0"
+    bluebird "^3.7.1"
+    chalk "^2.4.2"
+    clipboardy "^2.1.0"
+    common-tags "^1.8.0"
+    configstore "^5.0.0"
+    convert-hrtime "^3.0.0"
+    core-js "^2.6.10"
+    envinfo "^7.5.0"
+    execa "^3.4.0"
+    fs-exists-cached "^1.0.0"
+    fs-extra "^8.1.0"
+    gatsby-core-utils "^1.0.22"
+    gatsby-telemetry "^1.1.41"
+    hosted-git-info "^3.0.2"
+    is-valid-path "^0.1.1"
+    lodash "^4.17.15"
+    meant "^1.0.1"
+    node-fetch "^2.6.0"
+    object.entries "^1.1.0"
+    opentracing "^0.14.4"
+    pretty-error "^2.1.1"
+    progress "^2.0.3"
+    prompts "^2.3.0"
+    react "^16.12.0"
+    redux "^4.0.4"
+    resolve-cwd "^2.0.0"
+    semver "^6.3.0"
+    signal-exit "^3.0.2"
+    source-map "0.7.3"
+    stack-trace "^0.0.10"
+    strip-ansi "^5.2.0"
+    update-notifier "^3.0.1"
+    uuid "3.3.3"
+    yargs "^12.0.5"
+    yurnalist "^1.1.1"
+  optionalDependencies:
+    ink "^2.5.0"
+    ink-spinner "^3.0.1"
+
 gatsby-core-utils@^1.0.21:
   version "1.0.21"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.0.21.tgz#e14f6c3285faaf20c72cbfa0bbe16a95374b367b"
   dependencies:
     ci-info "2.0.0"
+
+gatsby-core-utils@^1.0.22:
+  version "1.0.22"
+  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.0.22.tgz#e246c85db5223906f67251ebb0e4e2e4965d66d7"
+  dependencies:
+    ci-info "2.0.0"
+    node-object-hash "^2.0.0"
 
 gatsby-graphiql-explorer@^0.2.29:
   version "0.2.29"
@@ -4942,6 +5012,28 @@ gatsby-telemetry@^1.1.40:
     envinfo "^7.5.0"
     fs-extra "^8.1.0"
     gatsby-core-utils "^1.0.21"
+    git-up "4.0.1"
+    is-docker "2.0.0"
+    lodash "^4.17.15"
+    node-fetch "2.6.0"
+    resolve-cwd "^2.0.0"
+    source-map "^0.7.3"
+    stack-trace "^0.0.10"
+    stack-utils "1.0.2"
+    uuid "3.3.3"
+
+gatsby-telemetry@^1.1.41:
+  version "1.1.41"
+  resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-1.1.41.tgz#f0b98e4b600514a266a90499fb0dccbb518a57bd"
+  dependencies:
+    "@babel/code-frame" "^7.5.5"
+    "@babel/runtime" "^7.7.4"
+    bluebird "^3.7.1"
+    boxen "^4.1.0"
+    configstore "^5.0.0"
+    envinfo "^7.5.0"
+    fs-extra "^8.1.0"
+    gatsby-core-utils "^1.0.22"
     git-up "4.0.1"
     is-docker "2.0.0"
     lodash "^4.17.15"
@@ -5234,7 +5326,7 @@ global-prefix@^1.0.1:
     is-windows "^1.0.1"
     which "^1.2.14"
 
-global@^4.3.0:
+global@^4.3.0, global@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/global/-/global-4.4.0.tgz#3e7b105179006a323ed71aafca3e9c57a5cc6406"
   dependencies:
@@ -5580,6 +5672,10 @@ hsl-regex@^1.0.0:
 hsla-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/hsla-regex/-/hsla-regex-1.0.0.tgz#c1ce7a3168c8c6614033a4b5f7877f3b225f9c38"
+
+html-attributes@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/html-attributes/-/html-attributes-1.1.0.tgz#82027a4fac7a6070ea6c18cc3886aea18d6dea09"
 
 html-comment-regex@^1.1.0:
   version "1.1.2"
@@ -7331,6 +7427,10 @@ node-libs-browser@^2.2.1:
     url "^0.11.0"
     util "^0.11.0"
     vm-browserify "^1.0.1"
+
+node-object-hash@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/node-object-hash/-/node-object-hash-2.0.0.tgz#9971fcdb7d254f05016bd9ccf508352bee11116b"
 
 node-pre-gyp@^0.12.0:
   version "0.12.0"
@@ -9910,6 +10010,13 @@ shell-quote@1.6.1:
     array-reduce "~0.0.0"
     jsonify "~0.0.0"
 
+short-uuid@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/short-uuid/-/short-uuid-3.1.1.tgz#3ff427074b5fa7822c3793994d18a7a82e2f73a4"
+  dependencies:
+    any-base "^1.1.0"
+    uuid "^3.3.2"
+
 sift@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/sift/-/sift-5.1.0.tgz#1bbf2dfb0eb71e56c4cc7fb567fbd1351b65015e"
@@ -10089,6 +10196,12 @@ sort-keys@^2.0.0:
   resolved "https://registry.yarnpkg.com/sort-keys/-/sort-keys-2.0.0.tgz#658535584861ec97d730d6cf41822e1f56684128"
   dependencies:
     is-plain-obj "^1.0.0"
+
+sort-media-queries@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/sort-media-queries/-/sort-media-queries-0.2.2.tgz#fddfc1e70d662759091b6a23776f4488683dca1e"
+  dependencies:
+    xtend "^4.0.0"
 
 source-list-map@^2.0.0:
   version "2.0.1"
