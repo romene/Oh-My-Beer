@@ -25,7 +25,7 @@ const StyledMenuBar = styled.div`
   width: 100%;
   background-color: white;
   opacity: 1;
-  min-height: 100px;
+  min-height: 100px; 
   position: absolute;
   top: 0;
   right: 0;

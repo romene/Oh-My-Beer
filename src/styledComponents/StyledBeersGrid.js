@@ -6,10 +6,15 @@ display: grid;
 margin: 2em auto;
 grid-gap: 10px;
 justify-items: stretch;
-  justify-content: center;	
+justify-content: center;	
 
 grid-template-columns: repeat(auto-fill, 300px);
 grid-template-rows: 1fr;
 
+
+@media(max-width: 768px) {
+     
+max-width: 350px;
+  }
 
 `

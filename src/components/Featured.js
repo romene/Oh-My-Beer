@@ -18,7 +18,7 @@ const Cards = () => (
               {" "}
               <h2 style={{ fontFamily: "Luckiest Guy" }}>Featured</h2>
             </Divider>
-              <StyledBeersGrid xs={24} sm={12} lg={6}>
+              <StyledBeersGrid>
             {Beers.map(beer => (
                   <Card key={beer.node.id} beers={beer.node} />
             ))}
