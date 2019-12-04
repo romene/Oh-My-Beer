@@ -11,9 +11,9 @@ const MenuBar = () => {
         <LogoBeer />
         <StyledMenuList>
          <ul>
-            <Link style={{color: '#d6bbaf'}} activeStyle={{color: '#bca095'}} to='/'>  <li> Home </li> </Link>
-            <Link style={{color: '#d6bbaf'}} activeStyle={{color: '#bca095'}}  to='/beers'> <li> beers </li> </Link>
-            <Link style={{color: '#d6bbaf'}} activeStyle={{color: '#bca095'}} to='/blog'> <li> Blog </li> </Link>
+            <Link style={{color: '#d6bbaf'}} activeStyle={{color: '#aa897c'}} to='/'>  <li> Home </li> </Link>
+            <Link style={{color: '#d6bbaf'}} activeStyle={{color: '#aa897c'}}  to='/beers'> <li> beers </li> </Link>
+            <Link style={{color: '#d6bbaf'}} activeStyle={{color: '#aa897c'}} to='/blog'> <li> Blog </li> </Link>
           </ul>
         </StyledMenuList>
         <Icons />
