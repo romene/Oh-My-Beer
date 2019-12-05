@@ -1,8 +1,6 @@
 import React from 'react'
 import { graphql, StaticQuery } from "gatsby";
 import styled from 'styled-components'
-import BeerHero from '../../../images/beerHero.jpg'
-import Logo from '../../../images/logo.png'
 import Img from 'gatsby-image'
 
 
@@ -27,7 +25,6 @@ const HeroInternalPage = () => (
   <StaticQuery
   query={queryBeerHero}
   render={data => {
-    console.log(data.allFile.edges[0].node.childImageSharp)
     const {fluid} = data.allFile.edges[0].node.childImageSharp
     return(
       <React.Fragment>
@@ -70,12 +67,3 @@ export const StyledHeroInternalPage = styled.div`
   align-items: center;
 `
 
-const StyledLogo = styled.div`
-  max-width: 200px;
-  height: 200px;
-  overflow: hidden;
-  img {
-    width: inherit;
-    height: inherit;  
-  }
-`

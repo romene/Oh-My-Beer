@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import StyledOverlay from './StyledOverlay'
 
 
 export const StyledCard = styled.div`

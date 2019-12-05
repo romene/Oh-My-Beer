@@ -4,7 +4,6 @@ import Layout from '../components/layout'
 import { StyledHero } from '../pages/index'
 import StyledBeersGrid from '../styledComponents/StyledBeersGrid'
 import Img from 'gatsby-image'
-import styled from 'styled-components'
 import VideoBeer from '../images/HeroVideo.mp4'
 import {
     StyledCard, CardHeader, CardBody, CardTitle, CardTagline, CardPrice} from '../styledComponents/StyledCard'   

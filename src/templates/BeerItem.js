@@ -4,7 +4,6 @@ import Layout from '../components/layout'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { StyledHeroInternalPage} from '../components/Layout/Hero/HeroInternalPage'
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import {Row, Col } from 'antd'
 import MenuBar from '../components/Layout/MenuBar/MenuBar'
 

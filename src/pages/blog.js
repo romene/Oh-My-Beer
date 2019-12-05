@@ -5,7 +5,6 @@ import Layout from "../components/layout"
 import HeroInternalPage from '../components/Layout/Hero/HeroInternalPage'
 import BlogCard from '../components/Layout/Blog/BlogCard'
 import { Col } from "antd"
-import MenuBar from '../components/Layout/MenuBar/MenuBar'
 
 const BlogPage = () => (
 <StaticQuery 

@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
-import { FaHeart, FaShoppingCart } from "react-icons/fa"
 import {Link} from 'gatsby'
-import { Badge, Icon } from 'antd';
+import { Icon } from 'antd';
 
 const Icons = () => {
     return (

@@ -1,6 +1,6 @@
 import React from "react"
-import { StaticQuery, graphql, Link } from "gatsby"
-import { Divider, Col, Row } from "antd"
+import { StaticQuery, graphql } from "gatsby"
+import { Divider } from "antd"
 import StyledBeersGrid from '../styledComponents/StyledBeersGrid'
 
 import Card from "./Card"
