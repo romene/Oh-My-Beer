@@ -74,7 +74,8 @@ const beers = (props) => {
                             data-item-price={price}
                             data-item-url="/paintings/starry-night"
                             data-item-image={beer.node.imageBeer.fixed.src}
-                            data-item-name={name}>Add to Cart</StyledButton>
+                            data-item-name={name}>Add to Cart
+                            </StyledButton>
                         </CardBody>
                       </StyledCard>
                   </Link>
