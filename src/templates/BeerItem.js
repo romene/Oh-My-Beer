@@ -29,7 +29,7 @@ query ($contentful_id: String!){
     edges{
       node{
         childImageSharp{
-          fluid{
+          fluid(maxWidth: 1920){
             src
             ...GatsbyImageSharpFluid_withWebp
           }
